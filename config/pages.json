@@ -1,0 +1,62 @@
+[
+  {
+    "view": "pages/catalog/menu",
+    "path": "/cardapio",
+    "headPartial": "head/menu",
+    "legacyView": "cardapio"
+  },
+  {
+    "view": "pages/information/contact",
+    "path": "/contato",
+    "headPartial": "head/contact",
+    "legacyView": "contato"
+  },
+  {
+    "view": "pages/home",
+    "path": "/",
+    "headPartial": "head/home",
+    "legacyView": "index"
+  },
+  {
+    "view": "pages/auth/login",
+    "path": "/login",
+    "headPartial": "head/login",
+    "legacyView": "login"
+  },
+  {
+    "view": "pages/information/news",
+    "path": "/novidades",
+    "headPartial": "head/news",
+    "legacyView": "novidades"
+  },
+  {
+    "view": "pages/error",
+    "path": "/paginaIndisponivel",
+    "headPartial": "head/error",
+    "legacyView": "paginaIndisponivel"
+  },
+  {
+    "view": "pages/information/privacy",
+    "path": "/privacyPolicy",
+    "headPartial": "head/privacy",
+    "legacyView": "privacyPolicy"
+  },
+  {
+    "view": "pages/auth/register",
+    "path": "/signin",
+    "headPartial": "head/register",
+    "legacyView": "signin"
+  },
+  {
+    "view": "pages/catalog/product",
+    "path": "/singleProductTab",
+    "headPartial": "head/product",
+    "legacyView": "singleProductTab"
+  },
+  {
+    "view": "pages/information/about",
+    "path": "/sobre_nos",
+    "headPartial": "head/about",
+    "legacyView": "sobre_nos"
+  }
+]

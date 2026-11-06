@@ -1,0 +1,132 @@
+.header {
+  --header-padding-y: 10px;
+  padding-top: var(--header-padding-y);
+  padding-bottom: var(--header-padding-y);
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  z-index: 1001;
+  transition:
+    padding-top 0.2s ease,
+    padding-bottom 0.2s ease;
+}
+
+.header.headerCompact {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+@media (max-width: 1200px) {
+  .header {
+    --header-padding-y: 8px;
+  }
+}
+
+.header .imageLogo {
+  transform: scale(0.9);
+  transform-origin: center;
+}
+
+.header > .imageLogo,
+.header .headerList img,
+.header .searchSubmit img {
+  display: block;
+}
+
+.header > .imageLogo,
+.header > .searchBar,
+.header > .headerList {
+  align-self: center;
+}
+
+.header .headerList {
+  align-items: center;
+}
+
+.header .headerList > a,
+.header .accountMenu,
+.header .accountToggle {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.header .searchBar {
+  align-items: center;
+}
+
+.header .accountAccess {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  text-align: left;
+  text-decoration: none;
+  color: #561f15;
+}
+
+.header .accountAccess > img {
+  flex: 0 0 auto;
+}
+
+.accountGreeting {
+  display: grid;
+  gap: 1px;
+  font-size: 11px;
+  line-height: 1.35;
+  max-width: min(140px, 30vw);
+  min-width: 0;
+}
+
+.accountGreeting strong {
+  font-weight: 800;
+}
+
+.accountGuestAction {
+  white-space: nowrap;
+}
+
+.accountUserName {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.header .accountAccess:focus-visible {
+  outline: 3px solid #561f15;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.headerNav {
+  position: fixed;
+  top: var(--site-header-height, 100px);
+  left: 0;
+  margin-top: 0;
+  z-index: 1000;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    visibility 0.2s;
+}
+
+.headerNav.navCollapsed {
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mainPageContent {
+  margin-top: calc(var(--site-header-space, 100px) + var(--site-nav-height, 40px) + 20px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .headerNav {
+    transition: none;
+  }
+}

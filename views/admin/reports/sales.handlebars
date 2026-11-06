@@ -1,0 +1,59 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="shopPanel adminPanel">
+    <a href="/admin/relatorios" class="shopLink">← Central de Relatórios</a>
+    <h1>{{titulo}}</h1>
+    <p class="reportCount">{{count}} pedido(s) registrado(s).</p>
+    <div class="reportSummary">
+      <p>
+        Valor dos pedidos não cancelados: <strong>{{totalDisplay}}</strong>
+      </p>
+      <p>Os valores representam pedidos registrados, sem comprovação de pagamento. Cancelados aparecem na listagem, mas não entram na soma.</p>
+    </div>
+    <div class="adminTableWrapper">
+      <table class="adminTable responsiveTable">
+        <caption class="visuallyHidden">Pedidos registrados</caption>
+        <thead>
+          <tr>
+            <th scope="col">Pedido</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Total</th>
+            <th scope="col">Data e hora</th>
+            <th scope="col">Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each dados}}
+            <tr>
+              <td data-label="Pedido">
+                <span class="tableCellValue">#{{id}}</span>
+              </td>
+              <td data-label="Cliente">
+                <span class="tableCellValue">{{cliente_nome}}<br><small>{{cliente_email}}</small></span>
+              </td>
+              <td data-label="Quantidade">
+                <span class="tableCellValue">{{total_itens}} un.</span>
+              </td>
+              <td data-label="Total">
+                <span class="tableCellValue">{{totalFormatado}}</span>
+              </td>
+              <td data-label="Data e hora">
+                <span class="tableCellValue">{{dataVenda}}</span>
+              </td>
+              <td data-label="Situação">
+                <span class="tableCellValue"><span class="roleBadge" data-order-status="{{status}}">{{status}}</span></span>
+              </td>
+            </tr>
+          {{else}}
+            <tr>
+              <td colspan="6">Nenhuma venda registrada.</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+{{> footer}}

@@ -1,0 +1,28 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="mainSobreNos">
+    <h1 class="primaryTitle">Página Indisponível</h1>
+    <div class="mainprivacyPolicyItem">
+      <h2 class="secundaryTitle">{{error.code}} — {{error.title}}</h2>
+      <p>
+        <strong>{{error.description}}</strong>
+      </p>
+    </div>
+    <div class="mainprivacyPolicyItem">
+      <h2 class="secundaryTitle">Caso continue tendo esse problema...</h2>
+      <ul>
+        <li>
+          <strong>Verifique a URL:</strong> Certifique-se de que não há erros de digitação no endereço da página.
+        </li>
+        <li>
+          <strong>Acesse a funcionalidade de dentro do Site:</strong> Entre na <a href="/" class="mainSobreNosItemLink">página inicial</a> e localize a página desejada.
+        </li>
+        <li>
+          <strong>Contate o Suporte:</strong> Se o problema persistir, entre em contato com nossa <a href="/contato" class="mainSobreNosItemLink">Equipe de Suporte.</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+{{> footer}}

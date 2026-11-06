@@ -1,0 +1,50 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="shopPanel trackingPanel">
+    <a href="/meus-pedidos" class="shopLink">← Voltar para meus pedidos</a>
+    <div class="trackingHeader">
+      <div>
+        <span class="trackingEyebrow">Acompanhamento</span>
+        <h1>Pedido #{{order.id}}</h1>
+        <p>Registrado em {{order.date}}</p>
+      </div>
+    </div>
+    <div class="trackingLayout">
+      <section class="trackingTimeline" aria-label="Linha do tempo do pedido">
+        <h2>Status do pedido</h2>
+        <ol class="statusTimeline">
+          {{#each timeline}}
+            <li class="statusStep {{#if last}}current{{/if}}" data-order-status="{{status}}">
+              <span class="statusDot" aria-hidden="true">{{#if cancelled}}✕{{else}}✓{{/if}}</span>
+              <div class="statusContent">
+                <div class="statusContentHeader">
+                  <h3>{{status}}</h3>
+                  <time>{{date}}</time>
+                </div>
+                {{#if note}}
+                  <p>{{note}}</p>
+                {{/if}}
+              </div>
+            </li>
+          {{/each}}
+        </ol>
+      </section>
+      <aside class="trackingSummary">
+        <h2>Resumo do pedido</h2>
+        <ul>
+          {{#each items}}
+            <li>
+              <span>{{quantity}} × {{name}}</span><strong>{{subtotal}}</strong>
+            </li>
+          {{/each}}
+        </ul>
+        <div class="trackingTotal">
+          <span>Total</span><strong>{{order.totalDisplay}}</strong>
+        </div>
+        <p class="trackingHelp">O status é atualizado pela equipe da Pastelaria Central conforme o pedido avança. Recarregue a página para consultar novas atualizações.</p>
+      </aside>
+    </div>
+  </section>
+</main>
+{{> footer}}

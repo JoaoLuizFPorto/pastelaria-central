@@ -1,0 +1,37 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="shopPanel authPanel addressRegistration">
+    <h1>Cadastre seu Endereço</h1>
+    {{#if checkout}}
+      <p>Cadastre seu endereço para concluir a compra.</p>
+    {{/if}}
+    {{#if error}}
+      <p class="feedback error" role="alert">{{error}}</p>
+    {{/if}}
+    <form action="/cadastrar-endereco" method="post" class="accountForm">
+      <input type="hidden" name="_csrf" value="{{csrf}}">
+      {{#if checkout}}
+        <input type="hidden" name="checkout" value="1">{{/if}}
+        {{> address-fields}}
+        <div class="addressRegistrationActions">
+          <button type="submit" class="shopButton">Confirmar</button>
+          {{#unless checkout}}
+            <button type="button" class="shopButton reportSecondary" id="skipAddress">Pular</button>{{/unless}}
+          </div>
+        </form>
+      </section>
+      {{#unless checkout}}
+        <dialog id="skipAddressDialog" class="passwordDialog" aria-labelledby="skipAddressTitle" aria-describedby="skipAddressDescription">
+          <div class="dialogHeading">
+            <h2 id="skipAddressTitle">Pular cadastro de endereço?</h2>
+            {{> dialog-close}}
+          </div>
+          <p id="skipAddressDescription">Para concluir uma compra, será necessário cadastrar seu endereço.</p>
+          <div class="profileActions">
+            <a href="/" class="shopButton">Pular por enquanto</a>
+          </div>
+        </dialog>
+      {{/unless}}
+    </main>
+    {{> footer}}

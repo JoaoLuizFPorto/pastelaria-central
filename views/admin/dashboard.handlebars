@@ -1,0 +1,24 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="shopPanel adminPanel">
+    <span class="roleBadge">Administração</span>
+    <h1>Área do Administrador</h1>
+    <p>Olá, {{user.name}}! Escolha uma função para continuar.</p>
+    <div class="adminFunctions">
+      <a href="/admin/produtos" class="adminFunction"><span class="adminFunctionIcon" aria-hidden="true">▦</span>
+      <h2>Gerenciar Produtos</h2>
+      <p>Cadastre produtos e consulte os registrados ou excluídos.</p>
+      <span class="adminFunctionAction">Acessar produtos →</span></a>
+      <a href="/admin/relatorios" class="adminFunction"><span class="adminFunctionIcon" aria-hidden="true">▤</span>
+      <h2>Analisar Relatórios</h2>
+      <p>Consulte clientes cadastrados, vendas e produtos do catálogo.</p>
+      <span class="adminFunctionAction">Acessar relatórios →</span></a>
+      <a href="/admin/pedidos" class="adminFunction"><span class="adminFunctionIcon" aria-hidden="true">☷</span>
+      <h2>Gerenciar Pedidos</h2>
+      <p>Consulte os pedidos registrados e os detalhes de cada solicitação.</p>
+      <span class="adminFunctionAction">Ver pedidos →</span></a>
+    </div>
+  </section>
+</main>
+{{> footer}}

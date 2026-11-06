@@ -1,0 +1,68 @@
+<!-- Header da Pagina -->
+{{> header}}
+<!-- Conteúdo da Pagina -->
+<main class="homePage">
+  <div class="mainPageContent"></div>
+  <section class="mainCard">
+    <div class="mainCardImagens">
+      <img class="mainCardImagensSlide" src="/images/banners/pastel-e-caldo-de-cana.png" alt="Anúncio 1">
+      <img class="mainCardImagensSlide" src="/images/banners/hora-do-pastel.png" alt="Anúncio 2">
+    </div>
+    <button type="button" class="mainCardBotaoAnterior" aria-label="Anúncio anterior"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5 6 12 15 19Z"/></svg></button>
+    <button type="button" class="mainCardBotaoProximo" aria-label="Próximo anúncio"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5 18 12 9 19Z"/></svg></button>
+  </section>
+  {{#if highlight}}
+    <h1 class="mainCardTitle">Experimente este sabor!</h1>
+    <section class="mainSecondCard featuredProduct" aria-labelledby="featuredProductTitle">
+      <div class="mainSecondCardDiv1">
+        <span class="featuredProductBadge">Em destaque</span><img data-product-image src="{{highlight.image}}" alt="{{highlight.name}}" loading="lazy">
+      </div>
+      <div class="mainSecondCardDiv2">
+        <div class="featuredProductHeading">
+          <span class="featuredProductEyebrow">Um sabor para experimentar</span>
+          <h2 id="featuredProductTitle" class="mainSecondCardDiv2Title">{{highlight.name}}</h2>
+        </div>
+        <div class="mainSecondCardDiv2Information">
+          <div class="mainSecondCardDiv2InformationPrice">
+            <p class="mainSecondCardDiv2InformationPriceText">Por apenas:</p>
+            <p class="mainSecondCardDiv2InformationPriceNumber">{{highlight.priceDisplay}}</p>
+          </div>
+          <div class="mainSecondCardDiv2InformationItens">
+            <h3 class="mainSecondCardDiv2InformationItensTitle">Ingredientes:</h3>
+            <ul class="featuredIngredients">
+              {{#each highlight.ingredients}}
+                <li>
+                  <span aria-hidden="true">-</span> {{this}}
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+        <div class="featuredProductActions">
+          <form action="/carrinho/adicionar" method="post">
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+            <input type="hidden" name="productId" value="{{highlight.id}}">
+            <button type="submit" class="mainSecondCardDiv2Buttom"><img src="/images/icons/cart-white.png" class="featuredProductCartIcon" alt="">
+            <p>Adicionar ao Carrinho</p>
+            </button>
+          </form>
+          <a href="/singleProductTab?produto={{highlight.id}}" class="shopButton reportSecondary">Ver produto</a>
+        </div>
+      </div>
+    </section>
+  {{/if}}
+  <div class="catalogProducts">
+    {{#each groups}}
+      <section class="cards" data-category="{{category}}">
+        <h2 class="secundaryTitle">{{title}}</h2>
+        <div class="cardsMenu">
+          {{#each products}}{{> product-card csrf=../../csrf}}{{/each}}
+        </div>
+      </section>
+    {{else}}
+      <p class="emptyState">Nenhum produto disponível no momento.</p>
+    {{/each}}
+  </div>
+</main>
+<!-- Footer da Pagina -->
+{{> footer}}

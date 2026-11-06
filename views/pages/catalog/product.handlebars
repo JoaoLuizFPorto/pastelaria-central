@@ -1,0 +1,43 @@
+{{> header}}
+<main class="productDetailPage">
+  <div class="mainPageContent"></div>
+  <section class="productDetailPanel" aria-labelledby="productTitle">
+    <a href="/cardapio" class="shopLink productBackLink">← Voltar ao cardápio</a>
+    <div class="ProductDisplayWrapper">
+      <div class="ProductVisualContainer">
+        <img data-product-image src="{{product.image}}" alt="{{product.name}}" class="ProductVisualImage">
+      </div>
+      <div class="ProductInformationContainer">
+        <h1 id="productTitle" class="ProductInformationTitle">{{product.name}}</h1>
+        <p class="productDetailPrice">
+          {{product.priceDisplay}} <span>por unidade</span>
+        </p>
+        <h2 class="ProductInformationSubtitle">Ingredientes / descrição:</h2>
+        <ul class="ProductIngredientsList">
+          {{#each product.ingredients}}
+            <li class="ProductIngredientsItem">
+              {{this}}
+            </li>
+          {{/each}}
+        </ul>
+        <form action="/carrinho/adicionar" method="post" class="productCartForm">
+          <input type="hidden" name="_csrf" value="{{csrf}}">
+          <input type="hidden" name="productId" value="{{product.id}}">
+          <label class="fieldLabel" for="productQuantity">Quantidade:</label>
+          <div class="quantityStepper">
+            <button type="button" data-product-quantity-change="-1" aria-label="Diminuir quantidade">−</button>
+            <input type="number" id="productQuantity" name="quantity" value="1" min="1" max="99" required>
+            <button type="button" data-product-quantity-change="1" aria-label="Aumentar quantidade">+</button>
+          </div>
+          <button type="submit" class="shopButton">Adicionar ao Carrinho</button>
+        </form>
+        <form action="/favoritos/adicionar" method="post" class="productFavoriteForm">
+          <input type="hidden" name="_csrf" value="{{csrf}}">
+          <input type="hidden" name="productId" value="{{product.id}}">
+          <button type="submit" class="favoriteButton">♡ Salvar nos favoritos</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+{{> footer}}

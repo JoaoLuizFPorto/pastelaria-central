@@ -1,0 +1,20 @@
+.mainSobreNos {
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+}
+
+.mainSobreNosItem {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.mainSobreNosItem p {
+  font-size: 25px;
+}
+
+.mainSobreNosItemLink {
+  color: black;
+  font-weight: bold;
+}

@@ -1,0 +1,187 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="shopPanel adminPanel {{#if orderSection}}ordersPanel{{/if}} {{#if productSection}}productsListPanel{{/if}}">
+    {{#if productSection}}<a href="/admin/produtos" class="shopLink">← Gerenciar Produtos</a>{{else}}<a href="/admin" class="shopLink">← Área do Administrador</a>{{/if}}
+    <h1>{{title}}</h1>
+    {{#if productSection}}
+      {{#if deleted}}
+        <p class="feedback success" role="status">Produto excluído do catálogo.</p>
+      {{/if}}
+      {{#if statusChanged}}
+        <p class="feedback success" role="status">Situação do produto atualizada.</p>
+      {{/if}}
+      {{#if restored}}
+        <p class="feedback success" role="status">Produto restaurado como Inativo. Ele está disponível em Produtos registrados.</p>
+      {{/if}}
+      <div class="adminTableWrapper">
+        <table class="adminTable responsiveTable productsManagementTable">
+          <colgroup><col class="managementProductColumn"><col class="managementCategoryColumn"><col class="managementPriceColumn"><col class="managementStatusColumn"><col class="managementActionsColumn"></colgroup>
+          <thead>
+            <tr>
+              <th scope="col">Produto</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Preço</th>
+              <th scope="col">Situação</th>
+              <th scope="col">
+                <span class="visuallyHidden">Ações</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each products}}
+              <tr>
+                <td data-label="Produto">
+                  <span class="tableCellValue">{{name}}</span>
+                </td>
+                <td data-label="Categoria">
+                  <span class="tableCellValue">{{categoryLabel}}</span>
+                </td>
+                <td data-label="Preço">
+                  <span class="tableCellValue">{{priceDisplay}}</span>
+                </td>
+                <td data-label="Situação">
+                  <span class="tableCellValue"><span class="roleBadge" data-product-status="{{statusKey}}">{{statusLabel}}</span></span>
+                </td>
+                <td class="responsiveActions">
+                  <div class="adminProductActions">
+                    {{#if deleted}}
+                      <form method="post" action="/admin/produtos/{{id}}/restaurar" class="restoreProductAction" data-restore-product="{{name}}">
+                        <input type="hidden" name="_csrf" value="{{../csrf}}">
+                        <button type="submit" class="removeButton">Restaurar produto</button>
+                      </form>
+                      {{else}}<a href="/admin/produtos/{{id}}/detalhes">Ver produto</a>
+                      <form method="post" action="/admin/produtos/{{id}}/situacao">
+                        <input type="hidden" name="_csrf" value="{{../csrf}}">
+                        <input type="hidden" name="situation" value="{{#if active}}inactive{{else}}active{{/if}}">
+                        <button type="submit" class="removeButton">{{#if active}}Inativar{{else}}Ativar{{/if}}</button>
+                      </form>
+                      <form method="post" action="/admin/produtos/{{id}}/excluir" data-delete-product="{{name}}">
+                        <input type="hidden" name="_csrf" value="{{../csrf}}">
+                        <button type="submit" class="removeButton">Excluir</button>
+                      </form>
+                    {{/if}}
+                  </div>
+                </td>
+              </tr>
+            {{else}}
+              <tr>
+                <td colspan="5">Nenhum produto encontrado nesta lista.</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      {{#unless excluded}}
+        <dialog id="deleteProductConfirm" class="passwordDialog" aria-labelledby="deleteProductTitle" aria-describedby="deleteProductDescription">
+          <div class="dialogHeading">
+            <h2 id="deleteProductTitle">Excluir produto</h2>
+            {{> dialog-close}}
+          </div>
+          <p id="deleteProductDescription">
+          </p>
+          <div class="profileActions">
+            <button type="button" class="shopButton" id="confirmDeleteProduct">Excluir produto</button>
+          </div>
+        </dialog>
+      {{else}}
+        <dialog id="restoreProductConfirm" class="passwordDialog" aria-labelledby="restoreProductTitle" aria-describedby="restoreProductDescription">
+          <div class="dialogHeading">
+            <h2 id="restoreProductTitle">Restaurar produto</h2>
+            {{> dialog-close}}
+          </div>
+          <p id="restoreProductDescription">
+          </p>
+          <div class="profileActions">
+            <button type="button" class="shopButton" id="confirmRestoreProduct">Restaurar produto</button>
+          </div>
+        </dialog>
+      {{/unless}}
+    {{/if}}
+    {{#if orderSection}}
+      <p>Consulte os pedidos e registre manualmente cada avanço no atendimento. O cliente verá todos os registros na linha do tempo.</p>
+      {{#if updated}}
+        <p class="feedback success" role="status" data-status-saved>Status do pedido atualizado com sucesso.</p>
+      {{/if}}
+      {{#each orders}}
+        <article class="orderCard adminOrderCard">
+          <div class="orderHeading">
+            <h2>Pedido #{{id}}</h2>
+            <span class="roleBadge" data-order-status="{{status}}" aria-label="Status atual: {{status}}">{{status}}</span>
+          </div>
+          <p>{{customer}} · {{date}}</p>
+          <ul class="adminOrderItems">
+            {{#each items}}
+              <li>
+                <span>{{quantity}} × {{name}}</span><strong>{{subtotal}}</strong>
+              </li>
+            {{/each}}
+          </ul>
+          <p class="orderTotal">
+            Total: <strong>{{totalDisplay}}</strong>
+          </p>
+          {{#if statusOptions}}
+            <button type="button" class="shopButton orderTrackingButton" data-open-status="order-status-{{id}}" aria-haspopup="dialog">Atualizar status</button>
+            <dialog id="order-status-{{id}}" class="orderStatusDialog" aria-labelledby="status-title-{{id}}">
+              <div class="dialogHeading orderStatusDialogHeading">
+                <h2 id="status-title-{{id}}">Atualizar status</h2>
+                {{> dialog-close}}
+              </div>
+              <p>
+                Pedido #{{id}} · Status atual: <strong>{{status}}</strong>
+              </p>
+              <form method="post" action="/admin/pedidos/{{id}}/status" class="statusForm">
+                <input type="hidden" name="_csrf" value="{{../csrf}}">
+                <input type="hidden" name="expectedStatus" value="{{storedStatus}}">
+                <label><span class="fieldLabel">Status:</span>
+                <select name="status" required>
+                  <option value="" disabled selected hidden>Selecione a próxima etapa</option>
+                  {{#each statusOptions}}
+                    <option value="{{value}}">{{value}}</option>
+                  {{/each}}
+                </select>
+                </label>
+                <label data-status-message hidden><span class="fieldLabel">Observação (opcional):</span>
+                <textarea name="note" maxlength="255" rows="3" placeholder="Informe detalhes da entrega ou do cancelamento." disabled></textarea>
+                </label>
+                <div class="statusDialogActions">
+                  <button type="submit" class="shopButton">Salvar status</button>
+                </div>
+              </form>
+            </dialog>
+          {{else}}
+            <p>Atendimento encerrado. O histórico permanece disponível para consulta.</p>
+          {{/if}}
+          {{#if history}}
+            <button type="button" class="shopButton reportSecondary orderTrackingButton" data-open-history="order-history-{{id}}" aria-haspopup="dialog">Visualizar histórico</button>
+            <dialog id="order-history-{{id}}" class="orderStatusDialog" aria-labelledby="history-title-{{id}}">
+              <div class="dialogHeading orderStatusDialogHeading">
+                <h2 id="history-title-{{id}}">Histórico do pedido #{{id}}</h2>
+                {{> dialog-close}}
+              </div>
+              <p>
+                Status atual: <strong>{{status}}</strong>
+              </p>
+              <div class="adminStatusHistory">
+                <ul>
+                  {{#each history}}
+                    <li>
+                      <div>
+                        <strong>{{status}}</strong><br><time>{{date}}</time>{{#if note}}
+                        <p>{{note}}</p>
+                      {{/if}}
+                    </div>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          </dialog>
+        {{/if}}
+      </article>
+    {{else}}
+      <p class="emptyState">Nenhum pedido registrado.</p>
+    {{/each}}
+  {{/if}}
+</section>
+</main>
+{{> footer}}

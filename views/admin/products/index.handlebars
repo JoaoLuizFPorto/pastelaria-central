@@ -1,0 +1,24 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="shopPanel adminPanel">
+    <a href="/admin" class="shopLink">← Área do Administrador</a>
+    <h1>Gerenciar Produtos</h1>
+    <p>Escolha uma opção para gerenciar o catálogo da pastelaria.</p>
+    <div class="adminFunctions">
+      <a href="/admin/produtos/novo" class="adminFunction"><span class="adminFunctionIcon" aria-hidden="true">＋</span>
+      <h2>Cadastrar Produto</h2>
+      <p>Adicione um novo produto ao catálogo.</p>
+      <span class="adminFunctionAction">Cadastrar produto →</span></a>
+      <a href="/admin/produtos/registrados" class="adminFunction"><span class="adminFunctionIcon" aria-hidden="true">▦</span>
+      <h2>Produtos registrados</h2>
+      <p>Consulte os produtos ativos e inativos e gerencie sua situação.</p>
+      <span class="adminFunctionAction">Ver produtos registrados →</span></a>
+      <a href="/admin/produtos/excluidos" class="adminFunction"><span class="adminFunctionIcon" aria-hidden="true">✕</span>
+      <h2>Produtos Excluídos</h2>
+      <p>Consulte e restaure os produtos retirados do catálogo.</p>
+      <span class="adminFunctionAction">Ver produtos excluídos →</span></a>
+    </div>
+  </section>
+</main>
+{{> footer}}

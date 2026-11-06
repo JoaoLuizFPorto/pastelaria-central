@@ -1,0 +1,197 @@
+/* Componentes compartilhados pela home e pelo cardápio. */
+.catalogProducts {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+/* Organização das listas de produtos. */
+.catalogProducts .cards {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  width: 100%;
+  gap: 20px;
+}
+
+.catalogProducts .cards[hidden] {
+  display: none;
+}
+
+.homePage .catalogProducts .cardsMenuItem {
+  flex-basis: calc((100% - 72px) / 5);
+}
+
+/* Categorias e subcategorias do filtro. */
+.categoryFilter {
+  font-weight: bold;
+}
+
+.cardapioPage .filtro-grupo .subcategoryFilter {
+  margin-left: 12px;
+  font-size: 13px;
+}
+
+.catalogProducts .secundaryTitle {
+  text-align: left;
+  color: #ae1616;
+  font-size: clamp(24px, 3vw, 32px);
+  border-bottom: 2px solid #ffc72c;
+  padding: 0 0 12px;
+}
+
+.catalogProducts .cardsMenu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  gap: 18px;
+}
+
+/* Aparência e conteúdo dos cards. */
+.catalogProducts .cardsMenuItem {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 0 1 calc((100% - 54px) / 4);
+  width: auto;
+  min-width: 0;
+  max-width: none;
+  height: auto;
+  min-height: 330px;
+  padding: 16px;
+  gap: 20px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px #0002;
+}
+
+.catalogProducts .cardsMenuItemContent1Img {
+  height: 165px;
+}
+
+.catalogProducts .cardsMenuItemContentName {
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.catalogProducts .cardsMenuItemContent2 {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.catalogProducts .cardsMenuItemContent2Price {
+  font-size: 23px;
+  color: #561f15;
+}
+
+.catalogProducts .cardsMenuItemContentButtom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  height: auto;
+  padding: 8px;
+  border-radius: 6px;
+  background: #ae1616;
+  color: #fff;
+}
+
+.catalogProducts .cardsMenuItemContentButtom:hover {
+  height: auto;
+  background: #861010;
+}
+
+.catalogProducts .cardsMenuItemContentButtom span {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.catalogProducts .cardsMenuItemContentButtomIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Ações do painel de filtros. */
+.filterActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.filterButton {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 240px;
+  min-height: 44px;
+  padding: 12px 8px;
+  border: 1px solid #ae1616;
+  border-radius: 7px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background: #ae1616;
+  color: #fff;
+  cursor: pointer;
+}
+
+.filterButton.clearFilters {
+  background: #fff;
+  color: #ae1616;
+}
+
+.filterButton:hover {
+  background: #861010;
+  border-color: #861010;
+}
+
+.filterButton.clearFilters:hover {
+  background: #fff0bd;
+  color: #861010;
+}
+
+.filterButton:focus-visible {
+  outline: 3px solid #ffc72c;
+  outline-offset: 3px;
+}
+
+/* Quantidade de cards por linha em telas menores. */
+@media (max-width: 1250px) {
+  .catalogProducts .cardsMenuItem,
+  .homePage .catalogProducts .cardsMenuItem {
+    flex-basis: calc((100% - 36px) / 3);
+  }
+}
+
+@media (max-width: 1000px) {
+  .catalogProducts .cardsMenuItem,
+  .homePage .catalogProducts .cardsMenuItem {
+    flex-basis: calc((100% - 18px) / 2);
+  }
+}
+
+@media (max-width: 420px) {
+  .catalogProducts .cardsMenuItem,
+  .homePage .catalogProducts .cardsMenuItem {
+    flex-basis: 100%;
+  }
+  .catalogProducts .cardsMenuItemContent1Img {
+    height: 190px;
+  }
+}

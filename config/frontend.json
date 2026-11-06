@@ -1,0 +1,9 @@
+[
+  "/js/components/navigation.js",
+  "/js/components/dialogs.js",
+  "/js/pages/accounts.js",
+  "/js/pages/catalog.js",
+  "/js/pages/cart.js",
+  "/js/pages/product-form.js",
+  "/js/pages/admin-orders.js"
+]

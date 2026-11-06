@@ -1,0 +1,95 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="shopPanel profilePanel">
+    <div class="profileHeading">
+      <div>
+        <h1>Minha Conta</h1>
+        <p>Olá, {{user.name}}! Atualize seus dados abaixo.</p>
+      </div>
+      {{#if isAdmin}}<span class="roleBadge">Administrador</span>{{else}}<span class="roleBadge clientRoleBadge">Cliente</span>{{/if}}
+    </div>
+    {{#if saved}}
+      <p class="feedback success" role="status">Seus dados foram atualizados.</p>
+    {{/if}}
+    {{#if error}}
+      <p class="feedback error" role="alert">{{error}}</p>
+    {{/if}}
+    <form id="profileForm" action="/minha-conta" method="post" class="accountForm profileForm">
+      <input type="hidden" name="_csrf" value="{{csrf}}">
+      <fieldset class="profileGroup">
+        <legend>Dados pessoais</legend>
+        <div class="profileGrid">
+          <div class="profileField">
+            <label class="fieldLabel" for="name">Nome:</label>
+            <input id="name" name="name" data-original="{{user.name}}" value="{{#if values}}{{values.name}}{{else}}{{user.name}}{{/if}}" autocomplete="given-name" minlength="2" maxlength="100" required>
+          </div>
+          <div class="profileField">
+            <label class="fieldLabel" for="surname">Sobrenome:</label>
+            <input id="surname" name="surname" data-original="{{user.surname}}" value="{{#if values}}{{values.surname}}{{else}}{{user.surname}}{{/if}}" autocomplete="family-name" maxlength="100" placeholder="Opcional">
+          </div>
+          <div class="profileField">
+            <label class="fieldLabel" for="email">Email:</label>
+            <input type="email" id="email" name="email" data-original="{{user.email}}" value="{{#if values}}{{values.email}}{{else}}{{user.email}}{{/if}}" autocomplete="username" maxlength="254" required>
+          </div>
+          <div class="profileField">
+            <label class="fieldLabel" for="phone">Telefone com DDD:</label>
+            <input id="phone" name="phone" type="tel" data-original="{{user.phone}}" value="{{#if values}}{{values.phone}}{{else}}{{user.phone}}{{/if}}" autocomplete="tel-national" placeholder="(19) 99999-9999" maxlength="20" required>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="profileGroup passwordGroup">
+        <legend>Alterar senha</legend>
+        <p>Preencha somente se quiser trocar sua senha.</p>
+        <div class="profileGrid">
+          <div class="profileField">
+            <label class="fieldLabel" for="newPassword">Nova senha:</label>
+            <div class="passwordInputControl">
+              <input type="password" id="newPassword" name="newPassword" autocomplete="new-password" minlength="8" maxlength="128">
+              <button type="button" class="passwordEye" data-toggle-password="newPassword" aria-label="Mostrar senha" aria-pressed="false">{{> password-toggle-icon}}</button>
+            </div>
+          </div>
+          <div class="profileField">
+            <label class="fieldLabel" for="confirmPassword">Confirme a nova senha:</label>
+            <div class="passwordInputControl">
+              <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password" minlength="8" maxlength="128">
+              <button type="button" class="passwordEye" data-toggle-password="confirmPassword" aria-label="Mostrar senha" aria-pressed="false">{{> password-toggle-icon}}</button>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="profileGroup addressGroup">
+        <legend>Endereço</legend>
+        <p>Informe seu endereço.</p>
+        <div class="profileGrid">
+          {{> address-fields}}
+        </div>
+      </fieldset>
+      <p id="profileNotice" role="status" hidden>Nenhuma alteração para salvar.</p>
+      <div class="profileActions">
+        <button class="shopButton" type="submit">Salvar alterações</button><a class="shopButton reportSecondary" href="/meus-pedidos">Ver meus pedidos</a>
+      </div>
+      <noscript>
+      <p>Ative o JavaScript para confirmar alterações na sua conta.</p>
+      </noscript>
+    </form>
+  </section>
+  <dialog id="profileConfirm" class="passwordDialog" aria-labelledby="confirmTitle" aria-describedby="confirmDescription">
+    <div class="dialogHeading">
+      <h2 id="confirmTitle">Confirmar alterações</h2>
+      {{> dialog-close}}
+    </div>
+    <p id="confirmDescription">Informe sua senha atual para salvar as mudanças na conta.</p>
+    <div class="profileField">
+      <label class="fieldLabel" for="currentPassword">Senha atual:</label>
+      <div class="passwordInputControl">
+        <input type="password" id="currentPassword" name="currentPassword" form="profileForm" autocomplete="current-password" maxlength="128" required disabled>
+        <button type="button" class="passwordEye" data-toggle-password="currentPassword" aria-label="Mostrar senha" aria-pressed="false">{{> password-toggle-icon}}</button>
+      </div>
+    </div>
+    <div class="profileActions">
+      <button type="button" id="confirmProfile" class="shopButton">Confirmar e salvar</button>
+    </div>
+  </dialog>
+</main>
+{{> footer}}

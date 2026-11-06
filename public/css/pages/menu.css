@@ -1,0 +1,119 @@
+/* Estrutura lateral do cardápio; os cards são compartilhados em productCards.css. */
+.cardapioPage .primaryTitle {
+  color: #ae1616;
+  font-size: clamp(30px, 4vw, 46px);
+}
+
+.cardapioPage .pai {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.cardapioPage .conteudo {
+  flex: 0 0 230px;
+  width: 230px;
+  min-width: 0;
+}
+
+.cardapioPage .filtros {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid #eadac5;
+  border-top: 5px solid #ffc72c;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px #561f1514;
+}
+
+.cardapioPage .filtros h2 {
+  color: #ae1616;
+  font-size: 21px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid #ffc72c;
+}
+
+.cardapioPage .filtro-grupo {
+  margin-bottom: 20px;
+}
+
+.cardapioPage .filtro-grupo h3 {
+  color: #561f15;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.cardapioPage .filtro-grupo label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #561f15;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.cardapioPage .filtro-grupo label:hover {
+  background: #fff5d5;
+}
+
+.cardapioPage .filtro-grupo label:has(input:checked) {
+  background: #fff0bd;
+  color: #ae1616;
+  font-weight: bold;
+}
+
+.cardapioPage .filtro-grupo input {
+  accent-color: #ae1616;
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.cardapioPage .filtro-grupo input:focus-visible {
+  outline: 2px solid #ae1616;
+  outline-offset: 3px;
+}
+
+.cardapioPage .cardapioMenu {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+  gap: 32px;
+}
+
+@media (max-width: 1000px) {
+  .cardapioPage .conteudo {
+    flex-basis: 200px;
+    width: 200px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cardapioPage .pai {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .cardapioPage .conteudo {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .cardapioPage .filtros {
+    padding: 18px;
+  }
+  .cardapioPage .cardapioMenu {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}

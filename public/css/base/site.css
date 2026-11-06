@@ -1,0 +1,323 @@
+/* ---- Conteudo da pagina ---- */
+
+/* Titulos */
+
+.primaryTitle {
+  /* margin-top: 10px; */
+  color: black;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.secundaryTitle {
+  font-size: 35px;
+  border-bottom: 2px solid #561f15;
+  color: black;
+  text-align: center;
+  padding: 5px;
+}
+
+/* Anuncio */
+
+/* .mainCard {
+    background-color: #D9D9D9;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.mainCardImagens {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.mainCardImagens img {
+  min-width: 100%;
+  object-fit: cover;
+} */
+
+/* .mainCardBotaoProximo, .mainCardBotaoAnterior {
+    background-color: lightgray;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.mainCardBotao:hover {
+    background-color: white;
+}
+
+.mainCardBotao img {
+    width: 20px;
+    height: 20px;
+} */
+
+.mainCard {
+  background-color: #d9d9d9;
+  height: 550px;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.mainCardImagens {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.mainCardImagensSlide {
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*  Ajuste dos Botões  */
+.mainCardBotaoAnterior,
+.mainCardBotaoProximo {
+  position: absolute; /* Tira os botões do fluxo normal para flutuarem */
+  top: 50%; /* Desce os botões até a metade */
+  transform: translateY(-50%); /* Centraliza perfeitamente  */
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 50%;
+  z-index: 10; /* Os botões ficam acima da imagem */
+  transition: background-color 0.2s;
+}
+
+.mainCardBotaoAnterior:hover,
+.mainCardBotaoProximo:hover {
+  background-color: rgba(255, 255, 255, 1); /* Fica opaco ao passar o mouse */
+}
+
+.mainCardBotaoAnterior {
+  left: 20px;
+}
+
+.mainCardBotaoProximo {
+  right: 20px;
+}
+
+.mainCardTitle {
+  font-size: 35px;
+  border-bottom: 2px solid #561f15;
+  color: black;
+  text-align: start;
+  padding: 5px;
+}
+
+.mainCardTitle {
+  font-size: 35px;
+  border-bottom: 2px solid #561f15;
+  color: black;
+  text-align: start;
+  padding: 5px;
+}
+
+/* Combo do Momento! */
+
+.mainSecondCard {
+  background-color: #d9d9d9;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 15px;
+  gap: 60px;
+}
+
+.mainSecondCardDiv1 {
+  height: 330px;
+  margin-left: 60px;
+}
+
+.mainSecondCardDiv1 img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+}
+
+.mainSecondCardDiv2 {
+  height: 330px;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  gap: 60px;
+  margin-right: 25px;
+  /* background-color: lightblue; */
+}
+
+.mainSecondCardDiv2Title {
+  font-size: 45px;
+}
+
+.mainSecondCardDiv2Information {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 160px;
+}
+
+.mainSecondCardDiv2InformationPriceText {
+  font-size: 18px;
+}
+
+.mainSecondCardDiv2InformationPriceNumber {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.mainSecondCardDiv2InformationItensTitle {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.mainSecondCardDiv2InformationItensNumber {
+  font-size: 20px;
+}
+
+.mainSecondCardDiv2Buttom {
+  background-color: #1cd437;
+  width: 600px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.mainSecondCardDiv2Buttom p {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.mainSecondCardDiv2Buttom:hover {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+/* Cards */
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.cardsMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 15px;
+
+  /* background-color: black; */
+  width: auto;
+}
+
+.cardsMenuItem {
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  width: 190px;
+  height: 350px;
+  border-radius: 10px;
+  padding: 15px;
+  transition: 0.3s;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardsMenuItem:hover {
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.cardsMenuItemContent1 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardsMenuItemContent1Img {
+  background-color: white;
+  height: 200px;
+  border-bottom: 1px solid lightgray;
+}
+
+.cardsMenuItemContent1Img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cardsMenuItemContentName {
+  color: black;
+  font-size: 20px;
+}
+
+.cardsMenuItemContent2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardsMenuItemContent2Price {
+  color: black;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.cardsMenuItemContentButtom {
+  background-color: #1cd437;
+  border-radius: 6px;
+  width: auto;
+  height: 35px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* gap: 10px; */
+}
+
+.cardsMenuItemContentButtom:hover {
+  height: 40px;
+  transition: 0.3s;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.cardsMenuItemContentButtom p {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
+.cardsMenuItemContentButtomIcon {
+  width: 22px;
+  height: 22px;
+  margin: 10px;
+}

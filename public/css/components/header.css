@@ -1,0 +1,117 @@
+/* ---- Header ---- */
+
+.header {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+
+  padding: 10px;
+  background-color: #ffc72c;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+.imageLogo {
+  width: 80px;
+  cursor: pointer;
+}
+
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+  width: 500px;
+  height: 25px;
+  border-radius: 20px;
+  padding: 8px 5px 8px 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.searchBarField {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  width: 440px;
+  height: 20px;
+}
+
+.searchBarField::placeholder {
+  font-weight: 800;
+  opacity: 1;
+}
+
+.imageLupe {
+  width: 20px;
+  cursor: pointer;
+}
+
+.headerList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.headerList img {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.headerList img:hover {
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+/* Nav */
+
+.headerNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 175px;
+  margin-top: 100px;
+
+  background-color: #ae1616;
+  height: 40px;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+.headerNav a {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.headerNav a:hover {
+  color: #ffc72c;
+  transition: 0.2s;
+}
+
+@media (max-width: 780px) {
+  .searchBar {
+    width: 250px;
+  }
+
+  .headerNav {
+    flex-direction: column;
+    height: 150px;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 530px) {
+  .header {
+    flex-direction: column;
+  }
+}

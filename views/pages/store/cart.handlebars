@@ -1,0 +1,87 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="shopPanel cartPage">
+    <h1>
+      Meu Carrinho <span class="itemCount">({{itemCount}} itens)</span>
+    </h1>
+    {{#if error}}
+      <p class="feedback error" role="alert">{{error}}</p>
+    {{/if}}
+    {{#if items}}
+      <div class="cartLayout">
+        <div class="cartItems">
+          {{#each items}}
+            <article class="cartItem">
+              <a href="/singleProductTab?produto={{id}}"><img data-product-image src="{{image}}" alt="{{name}}"></a>
+              <div class="cartItemInfo">
+                <h2>{{name}}</h2>
+                <p>{{unitPrice}} por unidade</p>
+                <form action="/carrinho/remover" method="post">
+                  <input type="hidden" name="_csrf" value="{{../csrf}}">
+                  <input type="hidden" name="productId" value="{{id}}">
+                  <button type="submit" class="removeButton" aria-label="Remover {{name}}">Remover</button>
+                </form>
+              </div>
+              <form action="/carrinho/quantidade" method="post" class="quantityForm">
+                <input type="hidden" name="_csrf" value="{{../csrf}}">
+                <input type="hidden" name="productId" value="{{id}}">
+                <label class="fieldLabel" for="quantity-{{id}}">Quantidade:</label>
+                <div class="quantityStepper">
+                  <button type="button" data-quantity-change="-1" aria-label="Diminuir quantidade de {{name}}">−</button>
+                  <input type="number" id="quantity-{{id}}" name="quantity" value="{{quantity}}" min="1" max="99" required>
+                  <button type="button" data-quantity-change="1" aria-label="Aumentar quantidade de {{name}}">+</button>
+                </div>
+              </form>
+              <strong class="cartItemSubtotal">{{subtotal}}</strong>
+            </article>
+          {{/each}}
+        </div>
+        <aside class="cartSummary">
+          <h2>Resumo do pedido</h2>
+          <dl>
+          <div>
+            <dt>Subtotal</dt><dd>{{totalDisplay}}</dd>
+          </div>
+          <div>
+            <dt>Pagamento</dt><dd>Sem cobrança online</dd>
+          </div>
+          <div class="summaryTotal">
+            <dt>Total</dt><dd>{{totalDisplay}}</dd>
+          </div>
+          </dl>
+          <p>O pedido será salvo na sua conta e poderá ser acompanhado em Meus Pedidos. Você receberá notificações por email no registro, na entrega ou no cancelamento.</p>
+          {{#if user}}
+            <form action="/pedidos" method="post"{{#if needsAddress}} data-checkout-address-required{{/if}}>
+              <input type="hidden" name="_csrf" value="{{csrf}}">
+              <button type="submit" class="shopButton">Registrar pedido</button>
+            </form>
+          {{else}}
+            <a href="/login" class="shopButton">Entrar para registrar pedido</a>
+          {{/if}}
+          <a href="/cardapio" class="backShopping">Continuar comprando</a>
+        </aside>
+      </div>
+    {{else}}
+      {{> empty-state cart=true title="Seu carrinho está vazio." description="Explore nosso cardápio e escolha seus sabores favoritos para começar seu pedido." buttonText="Ver cardápio"}}
+    {{/if}}
+  </section>
+  {{#if needsAddress}}
+    <dialog id="checkoutAddressDialog" class="passwordDialog" aria-labelledby="checkoutAddressTitle" aria-describedby="checkoutAddressDescription"{{#if showAddressNotice}} data-open-on-load{{/if}}>
+      <div class="dialogHeading">
+        <h2 id="checkoutAddressTitle">Cadastre seu endereço</h2>
+        {{> dialog-close}}
+      </div>
+      <p id="checkoutAddressDescription">Para concluir a compra, é necessário cadastrar seu endereço. Você será direcionado para o formulário de cadastro.</p>
+      <div class="profileActions">
+        <a href="/cadastrar-endereco?compra=1" class="shopButton">Cadastrar endereço</a>
+      </div>
+    </dialog>
+    <noscript>
+    <p class="shopPanel">
+      Para concluir a compra, <a href="/cadastrar-endereco?compra=1">cadastre seu endereço</a>.
+    </p>
+    </noscript>
+  {{/if}}
+</main>
+{{> footer}}

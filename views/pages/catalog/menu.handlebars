@@ -1,0 +1,40 @@
+{{> header}}
+<main class="cardapioPage">
+  <div class="mainPageContent"></div>
+  <h1 class="primaryTitle">Cardápio</h1>
+  <div class="pai">
+    <aside class="conteudo">
+      <section class="filtros">
+        <h2>FILTROS</h2>
+        <button type="button" class="shopButton reportSecondary catalogFilterToggle" aria-expanded="false" aria-controls="catalogFilterOptions" hidden>Filtros</button>
+        <form action="/cardapio" method="get" class="catalogFilters" id="catalogFilterOptions">
+          {{#each filterCategories}}
+            <div class="filtro-grupo">
+              <label class="categoryFilter">
+              <input type="checkbox" name="category" value="{{value}}" data-product-filter data-partial="{{partial}}" {{#if selected}}checked{{/if}}> {{label}}</label>
+              {{#each subcategories}}
+                <label class="subcategoryFilter">
+                <input type="checkbox" name="subcategory" value="{{value}}" data-subcategory-filter {{#if selected}}checked{{/if}}> {{label}}</label>{{/each}}
+              </div>
+            {{/each}}
+            <div class="filterActions">
+              <a href="/cardapio" class="filterButton clearFilters">Limpar filtros</a>
+            </div>
+          </form>
+        </section>
+      </aside>
+      <div class="cardapioMenu catalogProducts">
+        {{#each groups}}
+          <section class="cards" data-category="{{category}}" data-subcategory="{{subcategory}}">
+            <h2 class="secundaryTitle">{{title}}</h2>
+            <div class="cardsMenu">
+              {{#each products}}{{> product-card csrf=../../csrf}}{{/each}}
+            </div>
+          </section>
+        {{else}}
+          <p class="emptyState">Nenhum produto encontrado para os filtros selecionados.</p>
+        {{/each}}
+      </div>
+    </div>
+  </main>
+  {{> footer}}

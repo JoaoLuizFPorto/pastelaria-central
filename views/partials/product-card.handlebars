@@ -1,0 +1,23 @@
+<article class="cardsMenuItem" data-category="{{category}}">
+  <a href="/singleProductTab?produto={{id}}" class="productCardLink">
+  <div class="cardsMenuItemContent1">
+    <div class="cardsMenuItemContent1Img">
+      <img data-product-image src="{{image}}" alt="{{name}}" loading="lazy">
+    </div>
+    <p class="cardsMenuItemContentName">{{name}}</p>
+  </div>
+  </a>
+  <div class="cardsMenuItemContent2">
+    <p class="cardsMenuItemContent2Price">{{priceDisplay}}</p>
+    <form action="/carrinho/adicionar" method="post">
+      <input type="hidden" name="_csrf" value="{{csrf}}">
+      <input type="hidden" name="productId" value="{{id}}">
+      <button type="submit" class="cardsMenuItemContentButtom"><span>Adicionar ao Carrinho</span><img src="/images/icons/cart-white.png" alt="" class="cardsMenuItemContentButtomIcon"></button>
+    </form>
+    <form action="/favoritos/adicionar" method="post">
+      <input type="hidden" name="_csrf" value="{{csrf}}">
+      <input type="hidden" name="productId" value="{{id}}">
+      <button type="submit" class="favoriteButton">♡ Salvar nos favoritos</button>
+    </form>
+  </div>
+</article>

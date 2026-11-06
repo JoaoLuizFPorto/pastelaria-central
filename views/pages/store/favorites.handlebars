@@ -1,0 +1,43 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="shopPanel cartPage favoritesPage">
+    <h1>Meus Favoritos</h1>
+    <p>Guarde seus produtos preferidos para pedir depois.</p>
+    {{#if items}}
+      <div class="cartLayout">
+        <div class="cartItems">
+          {{#each items}}
+            <article class="cartItem">
+              <a href="/singleProductTab?produto={{id}}"><img data-product-image src="{{image}}" alt="{{name}}"></a>
+              <div class="cartItemInfo">
+                <h2>{{name}}</h2>
+                <p>{{priceDisplay}}</p>
+                <form action="/favoritos/remover" method="post">
+                  <input type="hidden" name="_csrf" value="{{../csrf}}">
+                  <input type="hidden" name="productId" value="{{id}}">
+                  <button type="submit" class="removeButton">Remover dos favoritos</button>
+                </form>
+              </div>
+              {{#if active}}
+                <form action="/carrinho/adicionar" method="post">
+                  <input type="hidden" name="_csrf" value="{{../csrf}}">
+                  <input type="hidden" name="productId" value="{{id}}">
+                  <button type="submit" class="shopButton small">Adicionar ao Carrinho</button>
+                </form>
+              {{else}}
+                <p>Produto indisponível.</p>
+              {{/if}}
+            </article>
+          {{/each}}
+        </div>
+        <aside class="cartSummary">
+          <h2>Seus preferidos</h2>
+          <p>Os favoritos ficam guardados na sua conta após o login.</p>
+          <a class="shopButton" href="/carrinho">Ver carrinho</a><a class="backShopping" href="/cardapio">Continuar explorando</a>
+        </aside>
+      </div>
+      {{else}}{{> empty-state favorite=true title="Você ainda não tem favoritos." description="Explore o cardápio e salve os produtos que você mais gosta para encontrar depois." buttonText="Explorar cardápio"}}{{/if}}
+    </section>
+  </main>
+  {{> footer}}

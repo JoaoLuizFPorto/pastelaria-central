@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    {{> (lookup . "headPartial")}}
+    <link rel="stylesheet" href="/css/components/store-components.css">
+    <link rel="stylesheet" href="/css/components/product-cards.css">
+    <link rel="stylesheet" href="/css/components/buttons.css">
+    <link rel="stylesheet" href="/css/components/navigation.css">
+    <link rel="stylesheet" href="/css/components/ui-consistency.css">
+    <link rel="stylesheet" href="/css/responsive/devices.css">
+    {{#each frontendScripts}}<script src="{{this}}" defer></script>{{/each}}
+  </head>
+  <body>
+    {{{body}}}
+    {{> cookie-notice}}
+  </body>
+</html>

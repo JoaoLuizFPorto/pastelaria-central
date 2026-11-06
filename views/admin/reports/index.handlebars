@@ -1,0 +1,24 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="shopPanel adminPanel">
+    <a href="/admin" class="shopLink">← Área do Administrador</a>
+    <h1>{{titulo}}</h1>
+    <p>Escolha um relatório para consultar os dados atuais da pastelaria.</p>
+    <div class="adminFunctions">
+      <a href="/admin/relatorios/clientes" class="adminFunction"><span class="adminFunctionIcon" aria-hidden="true">♙</span>
+      <h2>Clientes Cadastrados</h2>
+      <p>Nome, contato e data de cadastro das contas de clientes.</p>
+      <span class="adminFunctionAction">Ver clientes →</span></a>
+      <a href="/admin/relatorios/vendas" class="adminFunction"><span class="adminFunctionIcon" aria-hidden="true">▥</span>
+      <h2>Relatório de Vendas</h2>
+      <p>Pedidos registrados, compradores, valores e situações.</p>
+      <span class="adminFunctionAction">Ver vendas →</span></a>
+      <a href="/admin/relatorios/produtos" class="adminFunction"><span class="adminFunctionIcon" aria-hidden="true">▦</span>
+      <h2>Relatório de Produtos</h2>
+      <p>Todos os produtos cadastrados, incluindo os inativos.</p>
+      <span class="adminFunctionAction">Ver produtos →</span></a>
+    </div>
+  </section>
+</main>
+{{> footer}}

@@ -1,0 +1,19 @@
+{{> header}}
+<main class="searchPage">
+  <div class="mainPageContent"></div>
+  <header class="searchHeading">
+    <h1 class="primaryTitle">Resultado para "{{query}}":</h1>
+    <p class="searchCount" role="status">{{resultCount}} produto(s) encontrado(s).</p>
+  </header>
+  <div class="catalogProducts">
+    {{#each groups}}
+      <section class="cards">
+        <h2 class="secundaryTitle">{{title}}</h2>
+        <div class="cardsMenu">
+          {{#each products}}{{> product-card csrf=../../csrf}}{{/each}}
+        </div>
+      </section>
+      {{else}}{{#if query}}{{> empty-state title="Nenhum produto encontrado" description="Experimente outro nome ou ingrediente, ou explore nosso cardápio para encontrar seu próximo pedido." buttonText="Ver cardápio"}}{{else}}{{> empty-state title="O que você deseja encontrar?" description="Digite o nome de um produto ou ingrediente na barra de busca para começar." buttonText="Ver cardápio"}}{{/if}}{{/each}}
+    </div>
+  </main>
+  {{> footer}}

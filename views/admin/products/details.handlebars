@@ -1,0 +1,32 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="shopPanel adminPanel">
+    <a class="shopLink" href="/admin/produtos/{{#if product.deleted}}excluidos{{else}}registrados{{/if}}">← Voltar à lista de produtos</a>
+    <h1>{{product.name}}</h1>
+    <span class="roleBadge" data-product-status="{{product.statusKey}}">{{product.statusLabel}}</span>
+    <div class="adminProductInfo">
+      <img data-product-image src="{{product.image}}" alt="{{product.name}}">
+      <div>
+        <p>
+          <strong>Categoria:</strong> {{product.categoryLabel}}
+        </p>
+        <p>
+          <strong>Subcategoria:</strong> {{product.subcategoryLabel}}
+        </p>
+        <p>
+          <strong>Preço:</strong> {{product.priceDisplay}}
+        </p>
+        <h2>Descrição e ingredientes:</h2>
+        <ul>
+          {{#each product.ingredients}}
+            <li>
+              {{this}}
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+{{> footer}}

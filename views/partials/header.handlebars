@@ -1,0 +1,33 @@
+<header class="header">
+  <a href="/" class="logoLink" aria-label="Página inicial"><img src="/images/brand/logo.png" alt="Pastelaria Central" class="imageLogo"></a>
+  <form action="/busca" method="get" class="searchBar" role="search">
+    <input type="search" name="q" value="{{query}}" maxlength="100" aria-label="Buscar produtos" placeholder="Busque o que está procurando..." class="searchBarField">
+    <button type="submit" class="searchSubmit" aria-label="Buscar"><img src="/images/icons/search.png" alt="" class="imageLupe"></button>
+  </form>
+  <div class="headerList">
+    <a href="/carrinho" class="cartHeaderLink" aria-label="Meu carrinho"><img src="/images/icons/cart-black.png" alt=""><span class="cartBadge">{{cartCount}}</span></a>
+    <a href="/favoritos" aria-label="Meus favoritos"><img src="/images/icons/heart-outline.png" alt=""></a>
+    {{#if user}}
+      <div class="accountMenu">
+        <button type="button" class="accountToggle accountAccess" aria-label="Menu de Ferramentas de {{user.name}}" aria-expanded="false" aria-controls="accountDropdown"><img src="/images/icons/user-black.png" alt=""><span class="accountGreeting"><strong>Bem vindo de volta,</strong><strong class="accountUserName" title="{{user.name}}">{{user.name}}!</strong></span></button>
+        <div id="accountDropdown" class="accountDropdown" aria-labelledby="accountDropdownTitle" hidden>
+          <p id="accountDropdownTitle">Menu de Ferramentas</p>
+          {{#if isAdmin}}<a href="/admin">Área do Administrador</a>{{/if}}
+          <a href="/minha-conta">Minha Conta</a>
+          <a href="/meus-pedidos">Meus Pedidos</a>
+          <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+            <button type="submit">Sair</button>
+          </form>
+        </div>
+      </div>
+    {{else}}
+      <a href="/login" class="accountAccess" aria-label="Criar ou acessar conta"><img src="/images/icons/user-black.png" alt=""><span class="accountGreeting"><strong>Bem vindo!</strong><span class="accountGuestAction">Criar ou acessar conta</span></span></a>
+    {{/if}}
+  </div>
+</header>
+<nav class="headerNav">
+  <a href="/cardapio">Cardápio</a>
+  <a href="/novidades">Novidades</a>
+  <a href="/contato">Contato</a>
+</nav>

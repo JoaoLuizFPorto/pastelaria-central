@@ -1,0 +1,54 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="shopPanel adminPanel productReportPanel">
+    <a href="/admin/relatorios" class="shopLink">← Central de Relatórios</a>
+    <h1>{{titulo}}</h1>
+    <p class="reportCount">{{count}} produto(s) encontrado(s).</p>
+    <nav class="reportActions" aria-label="Tipo de relatório">
+      <a href="/admin/relatorios/produtos" class="shopButton {{#unless allProducts}}reportSecondary{{/unless}}" {{#if allProducts}}aria-current="page"{{/if}}>Todos os produtos</a>
+      <a href="/admin/relatorios/produtos?tipo=ativos" class="shopButton {{#unless onlyActive}}reportSecondary{{/unless}}" {{#if onlyActive}}aria-current="page"{{/if}}>Somente ativos</a>
+      <a href="/admin/relatorios/produtos?tipo=inativos" class="shopButton {{#unless onlyInactive}}reportSecondary{{/unless}}" {{#if onlyInactive}}aria-current="page"{{/if}}>Somente inativos</a>
+    </nav>
+    <div class="adminTableWrapper">
+      <table class="adminTable responsiveTable productReportTable">
+        <caption class="visuallyHidden">{{titulo}}</caption><colgroup><col class="reportProductColumn"><col class="reportCategoryColumn"><col class="reportSubcategoryColumn"><col class="reportPriceColumn"><col class="reportStatusColumn"></colgroup>
+        <thead>
+          <tr>
+            <th scope="col">Produto</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Subcategoria</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Situação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each dados}}
+            <tr>
+              <td data-label="Produto">
+                <span class="tableCellValue">{{name}}</span>
+              </td>
+              <td data-label="Categoria">
+                <span class="tableCellValue">{{categoria}}</span>
+              </td>
+              <td data-label="Subcategoria">
+                <span class="tableCellValue">{{subcategoria}}</span>
+              </td>
+              <td data-label="Preço">
+                <span class="tableCellValue">{{precoFormatado}}</span>
+              </td>
+              <td data-label="Situação">
+                <span class="tableCellValue"><span class="roleBadge" data-product-status="{{#if active}}active{{else}}inactive{{/if}}">{{#if active}}Ativo{{else}}Inativo{{/if}}</span></span>
+              </td>
+            </tr>
+          {{else}}
+            <tr>
+              <td colspan="5">Nenhum produto encontrado.</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+{{> footer}}

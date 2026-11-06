@@ -1,0 +1,32 @@
+<div class="profileField">
+  <label class="fieldLabel" for="address_postal_code">CEP:</label>
+  <input id="address_postal_code" name="address_postal_code" data-original="{{user.address_postal_code}}" value="{{#if values}}{{values.address_postal_code}}{{else}}{{user.address_postal_code}}{{/if}}" maxlength="9" inputmode="numeric" pattern="[0-9]{5}-?[0-9]{3}" autocomplete="postal-code" placeholder="00000-000" required>
+</div>
+<div class="profileField">
+  <label class="fieldLabel" for="address_street">Logradouro:</label>
+  <input id="address_street" name="address_street" data-original="{{user.address_street}}" value="{{#if values}}{{values.address_street}}{{else}}{{user.address_street}}{{/if}}" maxlength="150" autocomplete="address-line1" required>
+</div>
+<div class="profileField">
+  <label class="fieldLabel" for="address_number">Número:</label>
+  <input id="address_number" name="address_number" data-original="{{user.address_number}}" value="{{#if values}}{{values.address_number}}{{else}}{{user.address_number}}{{/if}}" maxlength="20" placeholder="Número ou S/N" required>
+</div>
+<div class="profileField">
+  <label class="fieldLabel" for="address_complement">Complemento:</label>
+  <input id="address_complement" name="address_complement" data-original="{{user.address_complement}}" value="{{#if values}}{{values.address_complement}}{{else}}{{user.address_complement}}{{/if}}" maxlength="100" autocomplete="address-line2">
+</div>
+<div class="profileField">
+  <label class="fieldLabel" for="address_district">Bairro:</label>
+  <input id="address_district" name="address_district" data-original="{{user.address_district}}" value="{{#if values}}{{values.address_district}}{{else}}{{user.address_district}}{{/if}}" maxlength="100" autocomplete="address-level3" required>
+</div>
+<div class="profileField">
+  <label class="fieldLabel" for="address_city">Cidade:</label>
+  <input id="address_city" name="address_city" data-original="{{user.address_city}}" value="{{#if values}}{{values.address_city}}{{else}}{{user.address_city}}{{/if}}" maxlength="100" autocomplete="address-level2" required>
+</div>
+<div class="profileField">
+  <label class="fieldLabel" for="address_state">Estado (UF):</label>
+  <input id="address_state" name="address_state" data-original="{{user.address_state}}" value="{{#if values}}{{values.address_state}}{{else}}{{user.address_state}}{{/if}}" maxlength="2" pattern="[A-Za-z]{2}" autocomplete="address-level1" placeholder="SP" required>
+</div>
+<div class="profileField">
+  <label class="fieldLabel" for="address_reference">Ponto de referência:</label>
+  <input id="address_reference" name="address_reference" data-original="{{user.address_reference}}" value="{{#if values}}{{values.address_reference}}{{else}}{{user.address_reference}}{{/if}}" maxlength="150" required>
+</div>

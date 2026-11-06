@@ -1,0 +1,1023 @@
+/*
+ * RESPONSIVE.CSS
+ * Pastelaria Central
+ *
+ * Telas:
+ * 1200px+  - desktop 
+ * 992-1199 - notebook 
+ * 768-991  - tablet maior
+ * 576-767  - tablet menor
+ * <=575px  - mobile
+ */
+
+/* BASE */
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+main {
+  width: min(92%, 1400px);
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mainCard,
+.mainSecondCard,
+.pai,
+.cardapioMenu,
+.cards,
+.cardsMenu,
+.MainContentArea,
+.mainSobreNos,
+.mainprivacyPolicy {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Banner */
+.mainCard {
+  width: 100%;
+  box-sizing: border-box;
+  height: clamp(360px, 38vw, 550px);
+}
+
+.mainCardImagens {
+  width: 100%;
+  height: 100%;
+}
+
+.mainCardImagensSlide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Combo */
+.mainSecondCard {
+  width: 100%;
+  min-height: 400px;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.mainSecondCardDiv1 {
+  flex: 0 1 35%;
+  width: auto;
+  min-width: 0;
+  margin-left: clamp(20px, 4vw, 60px);
+}
+
+.mainSecondCardDiv1 img {
+  display: block;
+  max-width: 100%;
+}
+
+.mainSecondCardDiv2 {
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+  margin-right: clamp(15px, 2vw, 25px);
+}
+
+.mainSecondCardDiv2Title {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.mainSecondCardDiv2Information {
+  gap: clamp(25px, 5vw, 80px);
+  flex-wrap: wrap;
+}
+
+.mainSecondCardDiv2Buttom {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Cards: a grid prevents cards from overflowing at intermediate widths. */
+.cardsMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  width: 100%;
+  gap: 15px;
+  align-items: stretch;
+}
+
+.cardsMenuItem {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.cardsMenuItemContentName,
+.cardsMenuItemContent2Price {
+  overflow-wrap: anywhere;
+}
+
+.cardsMenuItemContentButtom p {
+  overflow-wrap: anywhere;
+}
+
+/* Cardápio */
+.pai {
+  display: flex;
+  width: 100%;
+  gap: clamp(15px, 2vw, 25px);
+}
+
+.conteudo {
+  flex: 0 0 220px;
+  min-width: 0;
+}
+
+.filtros {
+  box-sizing: border-box;
+  width: 220px;
+  max-width: 100%;
+}
+
+.cardapioMenu {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.cardapioMenu .cardsMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+}
+
+/* Produto */
+.MainContentArea {
+  width: min(92%, 960px);
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ProductVisualImage {
+  max-width: 100%;
+  height: auto;
+}
+
+.ProductInformationTitle,
+.ProductIngredientsItem {
+  overflow-wrap: anywhere;
+}
+
+/* Text pages */
+.mainSobreNosItem p,
+.mainprivacyPolicyItem p,
+.mainprivacyPolicyItem li {
+  overflow-wrap: anywhere;
+}
+
+/* Footer */
+.footerNav {
+  width: min(92%, 1100px);
+  max-width: 1100px;
+}
+
+.footerMenu {
+  min-width: 0;
+}
+
+/* =========================================================
+   1200px - 1399px
+   ========================================================= */
+
+@media (max-width: 1399px) {
+  main {
+    width: min(92%, 1200px);
+  }
+
+  .header {
+    gap: clamp(15px, 2.2vw, 30px);
+  }
+
+  .headerNav {
+    gap: clamp(60px, 10vw, 140px);
+  }
+
+  .searchBar {
+    width: min(500px, 42vw);
+  }
+
+  .searchBarField {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .mainSecondCard {
+    gap: clamp(25px, 4vw, 60px);
+  }
+
+  .mainSecondCardDiv2 {
+    gap: 40px;
+  }
+}
+
+/* =========================================================
+   992px - 1199px
+   ========================================================= */
+
+@media (max-width: 1199px) {
+  main {
+    width: min(92%, 1050px);
+  }
+
+  .header {
+    gap: 15px;
+    padding: 8px 14px;
+  }
+
+  .imageLogo {
+    width: 70px;
+  }
+
+  .searchBar {
+    flex: 1 1 360px;
+    width: auto;
+    max-width: 500px;
+  }
+
+  .headerList {
+    gap: 18px;
+  }
+
+  .headerList img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .headerNav {
+    gap: 70px;
+  }
+
+  .mainCard {
+    height: clamp(340px, 40vw, 450px);
+  }
+
+  .mainSecondCard {
+    gap: 25px;
+  }
+
+  .mainSecondCardDiv1 {
+    margin-left: 25px;
+    flex-basis: 36%;
+  }
+
+  .mainSecondCardDiv2 {
+    gap: 30px;
+  }
+
+  .mainSecondCardDiv2Title {
+    font-size: clamp(32px, 4vw, 42px);
+  }
+
+  .mainSecondCardDiv2Information {
+    gap: 30px;
+  }
+
+  .mainSecondCardDiv2Buttom {
+    max-width: 100%;
+  }
+
+  .cardsMenu {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  }
+
+  .pai {
+    gap: 18px;
+  }
+
+  .conteudo,
+  .filtros {
+    flex-basis: 200px;
+    width: 200px;
+  }
+
+  .footerNav {
+    gap: 25px;
+  }
+
+  .footerMenu {
+    width: 30%;
+  }
+}
+
+/* =========================================================
+   768px - 991px: TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+  main {
+    width: min(94%, 900px);
+  }
+
+  .header {
+    gap: 12px;
+  }
+
+  .imageLogo {
+    width: 62px;
+  }
+
+  .searchBar {
+    flex: 1 1 300px;
+    min-width: 220px;
+  }
+
+  .headerList {
+    gap: 12px;
+  }
+
+  .headerList img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .headerNav {
+    gap: 45px;
+  }
+
+  .headerNav a {
+    font-size: 18px;
+  }
+
+  .mainPageContent {
+    margin-top: 125px;
+  }
+
+  .mainCard {
+    height: clamp(300px, 40vw, 390px);
+  }
+
+  .mainCardBotaoAnterior,
+  .mainCardBotaoProximo {
+    font-size: 20px;
+    padding: 9px 12px;
+  }
+
+  .mainCardBotaoAnterior {
+    left: 12px;
+  }
+
+  .mainCardBotaoProximo {
+    right: 12px;
+  }
+
+  .mainCardTitle {
+    font-size: clamp(28px, 4vw, 35px);
+  }
+
+  .mainSecondCard {
+    min-height: 0;
+    padding: 20px;
+    gap: 25px;
+    align-items: center;
+  }
+
+  .mainSecondCardDiv1 {
+    flex: 0 1 38%;
+    height: 280px;
+    margin-left: 0;
+  }
+
+  .mainSecondCardDiv2 {
+    height: auto;
+    gap: 25px;
+    margin-right: 0;
+  }
+
+  .mainSecondCardDiv2Title {
+    font-size: clamp(28px, 3.5vw, 36px);
+  }
+
+  .mainSecondCardDiv2Information {
+    gap: 25px;
+    justify-content: space-between;
+  }
+
+  .mainSecondCardDiv2InformationItensTitle {
+    font-size: clamp(22px, 3vw, 28px);
+  }
+
+  .mainSecondCardDiv2Buttom p {
+    font-size: clamp(20px, 2.8vw, 28px);
+  }
+
+  .cardsMenu {
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  }
+
+  /* Cardápio: filters stay beside the products while there is room. */
+  .conteudo,
+  .filtros {
+    flex-basis: 190px;
+    width: 190px;
+  }
+
+  .filtros {
+    padding: 15px;
+  }
+
+  .cardapioMenu .cardsMenu {
+    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  }
+
+  /* Product */
+  .MainContentArea {
+    width: min(94%, 900px);
+    padding: 18px;
+  }
+
+  .ProductDisplayWrapper {
+    gap: 20px;
+  }
+
+  .ProductInformationTitle {
+    font-size: clamp(24px, 3vw, 28px);
+  }
+
+  /* Text pages */
+  .mainSobreNosItem p,
+  .mainprivacyPolicyItem p {
+    font-size: clamp(20px, 2.5vw, 25px);
+  }
+
+  .mainprivacyPolicyItem li {
+    font-size: clamp(17px, 2.2vw, 20px);
+  }
+
+  /* Footer */
+  footer {
+    height: auto;
+    min-height: 300px;
+    gap: 35px;
+    padding-top: 30px;
+  }
+
+  .footerNav {
+    gap: 25px;
+  }
+
+  .footerMenu {
+    width: 31%;
+  }
+}
+
+/* =========================================================
+   <= 767px: LARGE MOBILE / PORTRAIT TABLET
+   Header becomes part of normal flow to avoid overlap.
+   ========================================================= */
+
+@media (max-width: 767px) {
+  main {
+    width: 94%;
+    max-width: none;
+  }
+
+  /* Header */
+  .header {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 8px 12px;
+  }
+
+  .imageLogo {
+    width: 62px;
+    flex: 0 0 auto;
+  }
+
+  .searchBar {
+    flex: 1 1 250px;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .searchBarField {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .headerList {
+    flex: 0 0 auto;
+    gap: 10px;
+  }
+
+  .headerList img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .headerNav {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 45px;
+    margin-top: 0;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .headerNav a {
+    font-size: 17px;
+  }
+
+  .mainPageContent {
+    margin-top: 20px;
+  }
+
+  /* Banner */
+  .mainCard {
+    height: clamp(230px, 55vw, 330px);
+    border-radius: 10px;
+  }
+
+  .mainCardBotaoAnterior,
+  .mainCardBotaoProximo {
+    font-size: 18px;
+    padding: 7px 10px;
+  }
+
+  .mainCardBotaoAnterior {
+    left: 8px;
+  }
+
+  .mainCardBotaoProximo {
+    right: 8px;
+  }
+
+  .mainCardTitle {
+    font-size: clamp(25px, 6vw, 30px);
+  }
+
+  /* Combo */
+  .mainSecondCard {
+    height: auto;
+    min-height: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 18px;
+  }
+
+  .mainSecondCardDiv1 {
+    width: 100%;
+    height: clamp(190px, 50vw, 260px);
+    flex: 0 0 auto;
+    margin-left: 0;
+  }
+
+  .mainSecondCardDiv2 {
+    width: 100%;
+    height: auto;
+    flex: none;
+    align-items: stretch;
+    gap: 20px;
+    margin-right: 0;
+  }
+
+  .mainSecondCardDiv2Title {
+    font-size: clamp(26px, 6vw, 32px);
+    text-align: center;
+  }
+
+  .mainSecondCardDiv2Information {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+  }
+
+  .mainSecondCardDiv2InformationPriceNumber {
+    font-size: 28px;
+  }
+
+  .mainSecondCardDiv2InformationItensTitle {
+    font-size: 23px;
+  }
+
+  .mainSecondCardDiv2InformationItensNumber {
+    font-size: 18px;
+  }
+
+  .mainSecondCardDiv2Buttom {
+    max-width: none;
+  }
+
+  .mainSecondCardDiv2Buttom p {
+    font-size: 21px;
+  }
+
+  /* Cards */
+  .secundaryTitle {
+    font-size: clamp(25px, 6vw, 30px);
+  }
+
+  .cardsMenu,
+  .cardapioMenu .cardsMenu {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .cardsMenuItem {
+    width: 100%;
+    min-height: 330px;
+    height: auto;
+    padding: 12px;
+  }
+
+  .cardsMenuItemContent1Img {
+    height: clamp(150px, 38vw, 190px);
+  }
+
+  .cardsMenuItemContentName {
+    font-size: 18px;
+  }
+
+  .cardsMenuItemContent2Price {
+    font-size: 21px;
+  }
+
+  .cardsMenuItemContentButtom {
+    min-height: 35px;
+    height: auto;
+    padding: 4px 6px;
+    gap: 4px;
+  }
+
+  .cardsMenuItemContentButtom p {
+    font-size: 12px;
+  }
+
+  .cardsMenuItemContentButtomIcon {
+    width: 20px;
+    height: 20px;
+    margin: 4px;
+  }
+
+  /* Cardápio */
+  .pai {
+    flex-direction: column;
+    width: 100%;
+    gap: 18px;
+  }
+
+  .conteudo,
+  .filtros {
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .filtros {
+    height: auto;
+    padding: 18px;
+  }
+
+  .cardapioMenu {
+    width: 100%;
+  }
+
+  /* Product */
+  .MainContentArea {
+    width: 94%;
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  .ProductDisplayWrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .ProductVisualContainer {
+    width: 100%;
+    box-sizing: border-box;
+    flex: none;
+    margin-bottom: 0;
+  }
+
+  .ProductInformationContainer {
+    width: 100%;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  .ProductIngredientsList {
+    padding-left: 20px;
+    list-style-position: outside;
+  }
+
+  .ProductActionButtonsContainer {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  /* Login / cadastro */
+  .loginContent,
+  .signinContent {
+    width: min(400px, 100%);
+    box-sizing: border-box;
+    padding: 1.5rem;
+  }
+
+  /* Text pages */
+  .mainSobreNos,
+  .mainprivacyPolicy {
+    gap: 35px;
+  }
+
+  .mainSobreNosItem,
+  .mainprivacyPolicyItem {
+    gap: 18px;
+  }
+
+  .mainSobreNosItem p,
+  .mainprivacyPolicyItem p {
+    font-size: clamp(18px, 4.5vw, 22px);
+    line-height: 1.45;
+  }
+
+  .mainprivacyPolicyItem li {
+    font-size: clamp(16px, 4vw, 18px);
+    line-height: 1.5;
+  }
+
+  .primaryTitle {
+    font-size: clamp(34px, 9vw, 50px);
+  }
+
+  /* Footer */
+  footer {
+    height: auto;
+    min-height: 0;
+    gap: 25px;
+    padding-top: 30px;
+  }
+
+  .footerNav {
+    width: 94%;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .footerMenu {
+    width: 100%;
+  }
+
+  .footerCopyright {
+    min-height: 55px;
+    height: auto;
+    padding: 10px 15px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .footerCopyright p,
+  .footerCopyright a {
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   <= 575px: MOBILE
+   ========================================================= */
+
+@media (max-width: 575px) {
+  main {
+    width: calc(100% - 24px);
+  }
+
+  .header {
+    padding: 8px 12px;
+  }
+
+  .imageLogo {
+    width: 58px;
+  }
+
+  .searchBar {
+    flex-basis: calc(100% - 78px);
+    height: 23px;
+    padding: 7px 5px;
+  }
+
+  .headerList {
+    width: 100%;
+    justify-content: center;
+    gap: 22px;
+    padding: 2px 0 3px;
+  }
+
+  .headerList img {
+    width: 29px;
+    height: 29px;
+  }
+
+  .headerNav {
+    justify-content: center;
+    gap: 16px 28px;
+    padding: 9px 10px;
+  }
+
+  .headerNav a {
+    font-size: 16px;
+  }
+
+  .mainPageContent {
+    margin-top: 15px;
+  }
+
+  .mainCard {
+    height: 220px;
+  }
+
+  .mainCardBotaoAnterior,
+  .mainCardBotaoProximo {
+    font-size: 15px;
+    padding: 6px 8px;
+  }
+
+  .mainCardBotaoAnterior {
+    left: 6px;
+  }
+
+  .mainCardBotaoProximo {
+    right: 6px;
+  }
+
+  .mainSecondCard {
+    padding: 14px;
+    gap: 16px;
+  }
+
+  .mainSecondCardDiv1 {
+    height: 190px;
+  }
+
+  .mainSecondCardDiv2 {
+    gap: 16px;
+  }
+
+  .mainSecondCardDiv2Title {
+    font-size: 25px;
+  }
+
+  .mainSecondCardDiv2Buttom {
+    min-height: 46px;
+    height: auto;
+  }
+
+  .mainSecondCardDiv2Buttom p {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .cardsMenu,
+  .cardapioMenu .cardsMenu {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .cardsMenuItem {
+    min-height: 300px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .cardsMenuItemContent1 {
+    gap: 7px;
+  }
+
+  .cardsMenuItemContent1Img {
+    height: 135px;
+  }
+
+  .cardsMenuItemContentName {
+    font-size: 16px;
+  }
+
+  .cardsMenuItemContent2 {
+    gap: 7px;
+  }
+
+  .cardsMenuItemContent2Price {
+    font-size: 19px;
+  }
+
+  .cardsMenuItemContentButtom p {
+    font-size: 10.5px;
+  }
+
+  .cardsMenuItemContentButtomIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .filtros {
+    padding: 15px;
+  }
+
+  .MainContentArea {
+    width: calc(100% - 24px);
+    padding: 12px;
+  }
+
+  .ProductInformationTitle {
+    font-size: 23px;
+  }
+
+  .ProductInformationSubtitle {
+    font-size: 17px;
+  }
+
+  .ProductIngredientsList {
+    padding-left: 18px;
+  }
+
+  .ProductActionButtonsContainer {
+    gap: 10px;
+  }
+
+  .PrimaryActionButtonActive {
+    padding: 11px 15px;
+    font-size: 14px;
+  }
+
+  .loginMain,
+  .signinMain {
+    min-height: 0;
+  }
+
+  .loginContent,
+  .signinContent {
+    width: 100%;
+    padding: 1.25rem;
+  }
+
+  .loginOptions {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .footerNav {
+    width: calc(100% - 24px);
+  }
+}
+
+/* =========================================================
+   <= 380px: VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .searchBar {
+    flex-basis: calc(100% - 72px);
+  }
+
+  .headerList {
+    gap: 16px;
+  }
+
+  .cardsMenu,
+  .cardapioMenu .cardsMenu {
+    grid-template-columns: 1fr;
+  }
+
+  .cardsMenuItem {
+    min-height: 0;
+  }
+
+  .cardsMenuItemContent1Img {
+    height: 190px;
+  }
+
+  .mainCard {
+    height: 190px;
+  }
+
+  .mainSecondCardDiv1 {
+    height: 165px;
+  }
+
+  .mainSecondCardDiv2Title {
+    font-size: 23px;
+  }
+}

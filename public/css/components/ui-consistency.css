@@ -1,0 +1,273 @@
+/* Ajustes comuns de layout, foco e controles da v9.0. */
+.shopPanel {
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+.shopPanel.authPanel {
+  width: min(520px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.adminTableWrapper {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  contain: inline-size;
+  overscroll-behavior-x: contain;
+}
+
+.adminTable :is(th, td) {
+  vertical-align: middle;
+}
+
+.adminTable :is(.roleBadge, time) {
+  white-space: nowrap;
+}
+
+.shopPanel.adminPanel .adminTableWrapper {
+  overflow-x: auto;
+}
+
+.homePage .featuredProductBadge {
+  z-index: 1;
+}
+
+.cartPage .cartItemInfo {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.cartPage .itemCount {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.quantityStepper,
+.productDetailPage .quantityStepper {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) 30px;
+  box-sizing: border-box;
+  width: 112px;
+}
+
+.quantityStepper button,
+.productDetailPage .quantityStepper button {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  border-radius: 0;
+}
+
+.quantityStepper input,
+.productDetailPage .quantityStepper input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 8px 0;
+  margin: 0;
+  border-radius: 0;
+}
+
+.quantityStepper button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.quantityStepper button:focus-visible,
+.favoriteButton:focus-visible,
+.backShopping:focus-visible {
+  outline: 3px solid #ffc72c;
+  outline-offset: 2px;
+}
+
+.passwordDialog,
+.orderStatusDialog {
+  background: #fff;
+  color: #561f15;
+  border-radius: 12px;
+  padding: 28px;
+  max-width: calc(100vw - 32px);
+}
+
+.passwordDialog::backdrop,
+.orderStatusDialog::backdrop {
+  background: #26191299;
+}
+
+.dialogHeading h2,
+.orderStatusDialogHeading h2 {
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.dialogClose {
+  flex-basis: 44px;
+  width: 44px;
+  height: 44px;
+}
+
+.imagePickerModes {
+  flex-wrap: wrap;
+}
+
+.imagePicker input[type='file'] {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.statusForm textarea {
+  min-height: 96px;
+  max-height: 320px;
+}
+
+.orderHeading {
+  flex-wrap: wrap;
+}
+
+.orderHeading .roleBadge {
+  flex-shrink: 0;
+}
+
+.orderCard li > span,
+.statusContent,
+.trackingSummary li span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.orderCard li > strong,
+.trackingSummary li strong {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.header .logoLink {
+  display: block;
+  align-self: center;
+  flex: 0 0 auto;
+}
+
+.header .logoLink:focus-visible {
+  outline: 3px solid #561f15;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (max-width: 780px) {
+  .shopPanel.cartPage {
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+  .shopPanel.authPanel {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .shopPanel.profilePanel {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .passwordDialog,
+  .orderStatusDialog {
+    padding: 20px;
+  }
+  .dialogHeading {
+    gap: 10px;
+  }
+  .dialogHeading h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 767px) {
+  .homePage .mainCard {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1967 / 799;
+  }
+  .homePage .mainCardImagensSlide {
+    object-fit: contain;
+  }
+  .cartPage .cartItem {
+    display: grid;
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 14px;
+    padding: 18px;
+  }
+  .cartPage .cartItem img {
+    width: 80px;
+    height: 80px;
+  }
+  .cartPage .cartItem .quantityForm {
+    grid-column: 1;
+    width: 112px;
+  }
+  .cartPage .cartItemSubtotal {
+    grid-column: 2;
+    align-self: center;
+    justify-self: end;
+  }
+  .favoritesPage .cartItem > form {
+    grid-column: 1 / -1;
+  }
+  .favoritesPage .cartItem > form > .shopButton {
+    width: 100%;
+  }
+  .trackingSummary,
+  .trackingTimeline {
+    min-width: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mainCardImagens {
+    transition: none;
+  }
+}
+
+/* Elementos fixos usam a largura visual, mesmo com tabelas largas roláveis. */
+.header,
+.headerNav {
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+.passwordDialog,
+.orderStatusDialog {
+  position: fixed;
+  inset: auto;
+  left: 50vw;
+  top: 50dvh;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+.shopButton,
+.favoriteButton,
+.backShopping {
+  box-sizing: border-box;
+  min-height: 44px;
+  line-height: 1.3;
+}
+
+.shopButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePickerModes .shopButton,
+.imagePickerModes .favoriteButton {
+  min-width: 0;
+}

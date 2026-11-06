@@ -1,0 +1,49 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="shopPanel adminPanel">
+    <a href="/admin/relatorios" class="shopLink">← Central de Relatórios</a>
+    <h1>{{titulo}}</h1>
+    <p class="reportCount">{{count}} cliente(s) cadastrado(s).</p>
+    <div class="adminTableWrapper">
+      <table class="adminTable responsiveTable">
+        <caption class="visuallyHidden">Contas de clientes, sem administradores</caption>
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Data de cadastro</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each dados}}
+            <tr>
+              <td data-label="ID">
+                <span class="tableCellValue">{{id}}</span>
+              </td>
+              <td data-label="Nome">
+                <span class="tableCellValue">{{name}}</span>
+              </td>
+              <td data-label="Email">
+                <span class="tableCellValue">{{email}}</span>
+              </td>
+              <td data-label="Telefone">
+                <span class="tableCellValue">{{#if phone}}{{phone}}{{else}}Não informado{{/if}}</span>
+              </td>
+              <td data-label="Data de cadastro">
+                <span class="tableCellValue">{{dataCadastro}}</span>
+              </td>
+            </tr>
+          {{else}}
+            <tr>
+              <td colspan="5">Nenhum cliente cadastrado.</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+{{> footer}}

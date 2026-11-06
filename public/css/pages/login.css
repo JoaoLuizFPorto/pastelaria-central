@@ -1,0 +1,204 @@
+.loginMain,
+.signinMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  /* margin-top: 3rem;
+    margin-bottom: 3rem; */
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loginContent,
+.signinContent {
+  background-color: #fffffe;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.loginSocial,
+.signinSocial {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.loginSocial button,
+.signinSocial button {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.loginSocial button:hover,
+.signinSocial button:hover {
+  background-color: #eee;
+}
+
+.loginSocial img,
+.signinSocial img {
+  width: 24px;
+  height: 24px;
+}
+
+.loginFacebook img,
+.signinFacebook img {
+  border-radius: 35%;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1rem 0;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.divider span {
+  padding: 0 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  text-align: left;
+}
+
+form label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+form input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+form input:focus {
+  border-color: #561f15;
+  box-shadow: 0 0 3px rgba(86, 31, 21, 0.4);
+}
+
+.passwordWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.passwordWrapper input {
+  width: 100%;
+  padding-right: 2.5rem;
+}
+
+.passwordWrapper button {
+  position: absolute;
+  right: 8px;
+  top: 64%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.loginOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+}
+
+.loginOptions label {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+.loginOptions a {
+  color: #561f15;
+}
+
+.loginButton,
+.signinButton {
+  background: #561f15;
+  color: #fff;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.3s;
+}
+
+.loginButton:hover,
+.signinButton:hover {
+  background: #441810;
+}
+
+.registerText {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.registerText a {
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  transition:
+    color 0.3s,
+    text-decoration 0.3s;
+}
+
+.registerText a:hover {
+  color: #561f15;
+  text-decoration: underline;
+}
+
+.inputError {
+  border-color: red !important;
+  box-shadow: 0 0 3px rgba(255, 0, 0, 0.4);
+}
+
+.errorMessage {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+  text-align: left;
+  display: none;
+}

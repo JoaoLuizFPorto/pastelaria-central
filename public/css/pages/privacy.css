@@ -1,0 +1,30 @@
+.mainprivacyPolicy {
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+}
+
+.mainprivacyPolicyItem {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.mainprivacyPolicyItem p {
+  font-size: 25px;
+}
+
+.mainprivacyPolicyItemLink {
+  color: black;
+  font-weight: bold;
+}
+
+.mainprivacyPolicyItem ul {
+  padding-left: 24px;
+}
+
+.mainprivacyPolicyItem li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  font-size: 20px;
+}

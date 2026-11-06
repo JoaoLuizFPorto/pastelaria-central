@@ -1,0 +1,9 @@
+node_modules/
+data/
+coverage/
+.cache/
+*.log
+*.pid
+*.tmp
+.DS_Store
+Thumbs.db

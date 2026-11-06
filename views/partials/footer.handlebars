@@ -1,0 +1,57 @@
+<footer>
+  <nav class="footerNav">
+    <div class="footerMenu">
+      <div class="footerMenu1-1">
+        <div class="footerMenuTitle">
+          <img src="/images/icons/building.png" alt="Building icon" id="footerMenuTitleImg1">
+          <h2>Institucional</h2>
+        </div>
+      </div>
+      <div class="footerMenu1-2">
+        <a href="/sobre_nos">Sobre nós</a>
+        <a href="/privacyPolicy">Política de privacidade</a>
+        <a href="/contato">Fale conosco</a>
+      </div>
+    </div>
+    <div class="footerMenu">
+      <div class="footerMenu2-1">
+        <div class="footerMenuTitle">
+          <img src="/images/icons/user-white.png" alt="User Icon" id="footerMenuTitleImg2">
+          <h2>Minha Conta</h2>
+        </div>
+      </div>
+      <div class="footerMenu2-2">
+        {{#if user}}<a href="/minha-conta">Minha Conta</a><a href="/meus-pedidos">Meus Pedidos</a>{{else}}<a href="/login">Entrar</a>{{/if}}
+        <a href="/carrinho">Meu carrinho</a>
+        <a href="/favoritos">Favoritos</a>
+      </div>
+    </div>
+    <div class="footerMenu">
+      <div class="footerMenu3-1">
+        <div class="footerMenuTitle">
+          <img src="/images/icons/location.png" alt="GPS icon" id="footerMenuTitleImg3">
+          <h2>Localização</h2>
+        </div>
+        <a href="https://maps.app.goo.gl/2hcch8q6xvpVDhiv5" target="_blank">Rua Major Braga, 797 - Centro - Aguaí/SP.</a>
+      </div>
+      <div class="footerMenu3-2">
+        <div class="footerMenuTitle">
+          <h2>Redes Sociais:</h2>
+        </div>
+        <div class="footerMenu3-2Redirect">
+          <img src="/images/icons/facebook.png" alt="Facebook" width="20px" height="20px">
+          <a href="https://m.facebook.com/pastelariacentralaguai/" target="_blank">@pastelariacentral_aguai</a>
+        </div>
+        <div class="footerMenu3-2Redirect">
+          <img src="/images/icons/instagram.png" alt="Instagram" width="20px" height="20px">
+          <a href="https://www.instagram.com/pastelariacentral_aguai?igsh=eWk1OHA0MWZ1OWw4" target="_blank">@pastelariacentral_aguai</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="footerCopyright">
+    <p>
+      © 2026 Pastelaria Central. Desenvolvido por <a href="/sobre_nos">Central Corp.</a> - v9.0
+    </p>
+  </div>
+</footer>

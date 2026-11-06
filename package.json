@@ -1,0 +1,28 @@
+{
+  "name": "pastelaria-central",
+  "version": "9.0.0",
+  "private": true,
+  "description": "Ecommerce acadêmico da Pastelaria Central — UNIFAE",
+  "main": "app.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "create-admin": "node scripts/create-admin.js",
+    "reset-password": "node scripts/reset-password.js"
+  },
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.3",
+    "multer": "^2.4.0",
+    "mysql2": "^3.24.5",
+    "nodemailer": "^10.1.2",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

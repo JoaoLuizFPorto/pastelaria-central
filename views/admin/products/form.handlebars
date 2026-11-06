@@ -1,0 +1,73 @@
+{{> header}}
+<main>
+  <div class="mainPageContent"></div>
+  <section class="shopPanel accountPanel productCreationPanel">
+    <a href="/admin/produtos" class="shopLink">← Gerenciar Produtos</a>
+    <h1>Cadastrar Produto</h1>
+    <p>Adicione um item ao cardápio. A home mantém uma seleção fixa de cinco pastéis e cinco bebidas.</p>
+    {{#if error}}
+      <p class="feedback error" role="alert">{{error}}</p>
+    {{/if}}
+    <form action="/admin/produtos/novo" method="post" class="accountForm">
+      <input type="hidden" name="_csrf" value="{{csrf}}">
+      <label class="fieldLabel" for="name">Nome do produto:</label>
+      <input id="name" name="name" value="{{values.name}}" minlength="2" maxlength="120" required>
+      <label class="fieldLabel" for="category">Categoria:</label>
+      <select id="category" name="category" required>
+        <option value="" disabled hidden {{#unless values.category}}selected{{/unless}}>Selecione</option>
+        {{#each categories}}
+          <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+        {{/each}}
+      </select>
+      <label class="fieldLabel" for="subcategory">Subcategoria:</label>
+      <select id="subcategory" name="subcategory" required>
+        <option value="" disabled hidden {{#unless values.subcategory}}selected{{/unless}}>Selecione</option>
+        {{#each subcategories}}
+          <option value="{{value}}" data-category="{{category}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+        {{/each}}
+      </select>
+      <label class="fieldLabel" for="price">Preço (R$):</label>
+      <input id="price" name="price" value="{{values.price}}" inputmode="decimal" placeholder="8,00" required>
+      <label class="fieldLabel" for="description">Descrição e ingredientes (um por linha):</label>
+      <textarea id="description" name="description" rows="5" minlength="2" maxlength="2000" required>{{values.description}}</textarea>
+      <label class="fieldLabel" for="situation">Situação:</label>
+      <select id="situation" name="situation" required>
+        {{#each situations}}
+          <option value="{{value}}" {{#if selected}}selected{{/if}}>{{label}}</option>
+        {{/each}}
+      </select>
+      <input type="hidden" id="uploadedImage" name="uploadedImage" value="{{values.uploadedImage}}">
+      <input type="hidden" id="selectedImageUrl" name="imageUrl" value="{{values.imageUrl}}">
+      <label class="fieldLabel" for="openImagePicker">Imagem do produto:</label>
+      <button type="button" class="favoriteButton" id="openImagePicker">Escolher imagem</button>
+      <p id="selectedImageStatus" role="status">{{#if values.uploadedImage}}Arquivo selecionado.{{else}}{{#if values.imageUrl}}Link selecionado.{{else}}Nenhuma imagem selecionada.{{/if}}{{/if}}</p>
+      <dialog id="imagePicker" class="passwordDialog imagePicker" aria-labelledby="imagePickerTitle">
+        <div class="dialogHeading">
+          <h2 id="imagePickerTitle">Imagem do produto</h2>
+          {{> dialog-close}}
+        </div>
+        <p>Escolha um arquivo do computador ou informe um link HTTPS.</p>
+        <div class="imagePickerModes" role="group" aria-label="Origem da imagem">
+          <button type="button" class="shopButton" id="chooseImageFile" aria-pressed="true" aria-controls="imageFilePanel">Subir arquivo</button>
+          <button type="button" class="favoriteButton" id="chooseImageLink" aria-pressed="false" aria-controls="imageLinkPanel">Usar link HTTPS</button>
+        </div>
+        <div id="imageFilePanel">
+          <label class="fieldLabel" for="imageFile">Arquivo JPG, PNG ou WebP (até 5 MB):</label>
+          <input type="file" id="imageFile" accept="image/jpeg,image/png,image/webp">
+        </div>
+        <div id="imageLinkPanel" hidden>
+          <label class="fieldLabel" for="imageUrl">Endereço da imagem:</label>
+          <input id="imageUrl" type="url" value="{{values.imageUrl}}" placeholder="https://..." maxlength="1000" disabled>
+        </div>
+        <p id="imagePickerMessage" role="status">
+        </p>
+        <div class="profileActions">
+          <button type="button" class="shopButton" id="uploadProductImage">Usar arquivo</button>
+          <button type="button" class="shopButton" id="useImageLink" hidden>Usar link</button>
+        </div>
+      </dialog>
+      <button type="submit" class="shopButton">Cadastrar Produto</button>
+    </form>
+  </section>
+</main>
+{{> footer}}
